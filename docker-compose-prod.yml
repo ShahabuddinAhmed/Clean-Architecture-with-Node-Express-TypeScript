@@ -1,0 +1,18 @@
+version: "3.7"
+services:
+  web:
+    container_name: cleanArchitectureService
+    build:
+      dockerfile: Dockerfile
+      context: .
+      args:
+          PORT: 80
+    hostname: cleanArchitecture
+    environment:
+      MYSQL_DATABASE: clean_architecture
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_HOST: 0.0.0.0
+      APPLICATION_SERVER_PORT: 3000
+      APP_FORCE_SHUTDOWN_SECOND: 30
+      API_KEY: abcd
