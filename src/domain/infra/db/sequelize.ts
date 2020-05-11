@@ -1,5 +1,5 @@
 import { Sequelize } from "sequelize";
-import config from "../config/config";
+import config from "../../../config/config";
 
 
 export class ConnectDB {
@@ -24,6 +24,15 @@ export class ConnectDB {
 
 const newSequelize = (): Sequelize => {
     return ConnectDB.getInstance();
+};
+
+export const initializeMySQLConnection = async () => {
+    try {
+        await newSequelize().authenticate();
+        console.log("MySQL Connection has been Established Successfully.");
+    } catch (err) {
+        console.error("Unable to connect to the database:", err);
+    }
 };
 
 export default newSequelize;

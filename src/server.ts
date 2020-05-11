@@ -1,7 +1,7 @@
 import app from "./app";
 import http from "http";
 import config from "./config/config";
-import newSequelize from "./infra/sequelize";
+import newSequelize from "./domain/infra/db/sequelize";
 
 const logger = console;
 
